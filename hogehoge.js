@@ -1,5 +1,6 @@
-//=============================
-//ƒtƒH[ƒ€‚©‚çŒÄ‚Ño‚³‚ê‚éŠÖ”
+ï»¿//=============================
+//ãƒ•ã‚©ãƒ¼ãƒ ã‹ã‚‰å‘¼ã³å‡ºã•ã‚Œã‚‹é–¢æ•°
+//æ›´æ–°æ—¥:20180506
 //=============================
 
 //-----------------------
@@ -20,7 +21,7 @@ function clickbtnStart(){
   
   var eAnsTitle = document.getElementById("lblTitle");
 
-  //ƒtƒH[ƒJƒX
+  //ãƒ•ã‚©ãƒ¼ã‚«ã‚¹
   var eInputAns = document.getElementById("inputAns");	
   eInputAns.focus();
   
@@ -48,13 +49,13 @@ function clickbtnReset(){
   var eBtnStart = document.getElementById("btnStart");
   eBtnStart.disabled = false;
   
-  started = 0 //ƒXƒgƒbƒvƒEƒHƒbƒ`‚ğ’â~
+  started = 0 //ã‚¹ãƒˆãƒƒãƒ—ã‚¦ã‚©ãƒƒãƒã‚’åœæ­¢
 
-  //‰ğ“š”‚ğ0
+  //è§£ç­”æ•°ã‚’0
   var eLblAnsCount = document.getElementById("lblAnsCount");    
   eLblAnsCount.innerText = 0;
   
-  //‰ñ“š—“‚ğ‹ó—“
+  //å›ç­”æ¬„ã‚’ç©ºæ¬„
   var eInputAns = document.getElementById("inputAns");	
   eInputAns.value = "";
   
@@ -111,8 +112,8 @@ function clickbtnSubmit(){
   //console.log("correctAns -> " + correctAns);
   
   var eInputAns = document.getElementById("inputAns");	
-  var MAX_ANS_COUNT = 100 // ‰ğ“š”
-  if (parseInt(eInputAns.value) == correctAns){ //–¾¦“IƒLƒƒƒXƒgi‚Â‚¯‚È‚­‚Ä‚à“®‚­j
+  var MAX_ANS_COUNT = 100 // è§£ç­”æ•°
+  if (parseInt(eInputAns.value) == correctAns){ //æ˜ç¤ºçš„ã‚­ãƒ£ã‚¹ãƒˆï¼ˆã¤ã‘ãªãã¦ã‚‚å‹•ãï¼‰
     var eLblAnsCount = document.getElementById("lblAnsCount");
 	var ansCount;
     
@@ -121,7 +122,7 @@ function clickbtnSubmit(){
     
     if (ansCount === MAX_ANS_COUNT){
       eLblTitle.innerText = "Clear!"
-      started = 0 //ƒXƒgƒbƒvƒEƒHƒbƒ`‚ğ’â~
+      started = 0 //ã‚¹ãƒˆãƒƒãƒ—ã‚¦ã‚©ãƒƒãƒã‚’åœæ­¢
       
       var eBtnStart = document.getElementById("btnStart");
       eBtnStart.disabled = true;
@@ -135,20 +136,20 @@ function clickbtnSubmit(){
       eInputAns.value = eLblLeftQ.innerText + eLblRightQ.innerText;
       
     }else{
-      eLblTitle.innerText = "OK"; //label‚É‚Ívalue‚Í‚È‚¢
-      setFormula() //Ÿ‚Ì–â‘è‚ğ•\¦
+      eLblTitle.innerText = "OK"; //labelã«ã¯valueã¯ãªã„
+      setFormula() //æ¬¡ã®å•é¡Œã‚’è¡¨ç¤º
       eInputAns.value = "";
       
     }
   }else{
-    eLblTitle.innerText = "NG"; //label‚É‚Ívalue‚Í‚È‚¢
+    eLblTitle.innerText = "NG"; //labelã«ã¯valueã¯ãªã„
     eInputAns.value = "";
 
 	}
 }
 
 //-----------
-//‰Šú‰»ˆ—
+//åˆæœŸåŒ–å‡¦ç†
 //-----------
 function init(){
   
@@ -169,14 +170,14 @@ function init(){
 }
 
 //=====
-//”®
+//æ•°å¼
 //=====
 
-//‰‰Zq¯•Ê‹L†
-var OPE_ADD = '01';   //‰ÁZ ‰‰Zq¯•ÊƒR[ƒh
-var OPE_SUB = '02';   //Œ¸Z ‰‰Zq¯•ÊƒR[ƒh
-var OPE_MULTI = '03'; //æZ ‰‰Zq¯•ÊƒR[ƒh
-var OPE_DIV = '04';   //œZ ‰‰Zq¯•ÊƒR[ƒh
+//æ¼”ç®—å­è­˜åˆ¥è¨˜å·
+var OPE_ADD = '01';   //åŠ ç®— æ¼”ç®—å­è­˜åˆ¥ã‚³ãƒ¼ãƒ‰
+var OPE_SUB = '02';   //æ¸›ç®— æ¼”ç®—å­è­˜åˆ¥ã‚³ãƒ¼ãƒ‰
+var OPE_MULTI = '03'; //ä¹—ç®— æ¼”ç®—å­è­˜åˆ¥ã‚³ãƒ¼ãƒ‰
+var OPE_DIV = '04';   //é™¤ç®— æ¼”ç®—å­è­˜åˆ¥ã‚³ãƒ¼ãƒ‰
 
 var addCount = 0;
 var subCount = 0;
@@ -185,12 +186,12 @@ var divCount = 0;
 
 function setFormula(){
 
-  var operationCode,operationName; //‰‰Zq
+  var operationCode,operationName; //æ¼”ç®—å­
   var leftQ;
   var rightQ;
   var correctAns;
 
-  //‰‰Zq‚Ìæ“¾ˆ—
+  //æ¼”ç®—å­ã®å–å¾—å‡¦ç†
   operationCode = getOperationCode();
   operationName = getOperationName(operationCode);
      
@@ -223,7 +224,7 @@ function setFormula(){
       break;
   }
 
-  //”®•\¦
+  //æ•°å¼è¡¨ç¤º
   var eLblLeftQ = document.getElementById("lblLeftQ");
   var eLblRightQ = document.getElementById("lblRightQ");
   var eLblOperation = document.getElementById("lblOperation");
@@ -234,20 +235,20 @@ function setFormula(){
   
   function getCurrentAnsAdd(){
     var min,max;
-    min = 2; //‰ğ‚ÌÅ¬’l
-    max = 99; //‰ğ‚ÌÅ‘å’l
+    min = 2; //è§£ã®æœ€å°å€¤
+    max = 99; //è§£ã®æœ€å¤§å€¤
     return getRandom(min,max);
   }
   function getCurrentAnsSub(){
     var min,max;
-    min = 2; //‰ğ‚ÌÅ¬’l
-    max = 98; //‰ğ‚ÌÅ‘å’l
+    min = 2; //è§£ã®æœ€å°å€¤
+    max = 98; //è§£ã®æœ€å¤§å€¤
     return getRandom(min,max);
   }
   function getCurrentAnsMulti(){
-    var anPrimeNumbers = getAnPrimeNumbers(); //‘f”‚Ì”z—ñ‚ğæ“¾
+    var anPrimeNumbers = getAnPrimeNumbers(); //ç´ æ•°ã®é…åˆ—ã‚’å–å¾—
 
-    //‘f”‚Ìˆê——•\¦iƒeƒXƒg—pj
+    //ç´ æ•°ã®ä¸€è¦§è¡¨ç¤ºï¼ˆãƒ†ã‚¹ãƒˆç”¨ï¼‰
     //for (i = 0; i < primeNumbers.length; i++){
     //  console.log('primeNumbers[i] ==>> ' + primeNumbers[i]);
     //}
@@ -262,25 +263,25 @@ function setFormula(){
   
   function getCurrentAnsDiv(){
     var min,max;
-    min = 2; //‰ğ‚ÌÅ¬’l
-    max = 49; //‰ğ‚ÌÅ‘å’l
+    min = 2; //è§£ã®æœ€å°å€¤
+    max = 49; //è§£ã®æœ€å¤§å€¤
     return getRandom(min,max);
   }
   
   function getLeftQAdd(_correctAns){
     var min,max;
-    min = 1; //‰ÁZ‚·‚éÅ¬’l
+    min = 1; //åŠ ç®—ã™ã‚‹æœ€å°å€¤
     max = _correctAns - min;  
     return  getRandom(min,max);
   }
   function getLeftQSub(_correctAns){
     var min,max;
-    min = _correctAns + 1; //‰ÁZ‚·‚éÅ¬’l
+    min = _correctAns + 1; //åŠ ç®—ã™ã‚‹æœ€å°å€¤
     max = 99;
     return getRandom(min,max);
   }
   function getLeftQMulti(_correctAns){
-    var divisor = [] //–ñ”
+    var divisor = [] //ç´„æ•°
     var min,max;
     for (i = 2; i <= _correctAns / 2; i++){
       if (_correctAns % i === 0){
@@ -293,7 +294,7 @@ function setFormula(){
     return divisor[getRandom(min, max)];
   }
   function getLeftQDiv(_correctAns){
-    var multiple = []; //”{”
+    var multiple = []; //å€æ•°
     var maxAns 
     var min ,max;
     maxAns = 99;
@@ -478,7 +479,7 @@ function getAnPrimeNumbers(){
   sieve[1] = false;
   
   //---------------
-  //‘f”‚ÉTrue‚ğŠi”[
+  //ç´ æ•°ã«Trueã‚’æ ¼ç´
   //---------------
   for (i = 2; i <= Math.sqrt(MAX) ; i++){
     if (sieve[i] === true){      
@@ -489,9 +490,9 @@ function getAnPrimeNumbers(){
   }
   
   //---------------
-  //‘f”‚Ì”‚ğæ“¾
+  //ç´ æ•°ã®æ•°ã‚’å–å¾—
   //---------------
-  var pCount = 0 //‘f”‚Ì”
+  var pCount = 0 //ç´ æ•°ã®æ•°
   for (i = 0; i <= MAX; i++){
     if (sieve[i] === true){
       //console.log('i -> ' + i);
@@ -500,12 +501,12 @@ function getAnPrimeNumbers(){
   }
   
   //--------------------------------
-  //0‚Æ1‚ğœ‚¢‚½‘f”ˆÈŠO‚Ì”z—ñ‚ğì¬
+  //0ã¨1ã‚’é™¤ã„ãŸç´ æ•°ä»¥å¤–ã®é…åˆ—ã‚’ä½œæˆ
   //--------------------------------
   var pIndex = 0;
   var pAnNumbers = new Array(pCount);
   for (i = 2; i <= MAX; i++){
-    if (sieve[i] === false){ //‘f”‚¾‚¯‚Ìê‡‚Ítrue,
+    if (sieve[i] === false){ //ç´ æ•°ã ã‘ã®å ´åˆã¯true,
       pAnNumbers[pIndex] = i;
       pIndex = pIndex + 1;
     }
@@ -514,15 +515,15 @@ function getAnPrimeNumbers(){
 }
 
 // =================
-// ƒXƒgƒbƒvƒEƒHƒbƒ`
+// ã‚¹ãƒˆãƒƒãƒ—ã‚¦ã‚©ãƒƒãƒ
 // =================
 
-var started = 0; //ŠJnƒtƒ‰ƒO
-var timer1 = null; //ƒ^ƒCƒ}[
-var startDate = -1; //ŠJnŠÔ
+var started = 0; //é–‹å§‹ãƒ•ãƒ©ã‚°
+var timer1 = null; //ã‚¿ã‚¤ãƒãƒ¼
+var startDate = -1; //é–‹å§‹æ™‚é–“
 
 //---------------------
-//ƒXƒgƒbƒvƒEƒHƒbƒ`ŠJn
+//ã‚¹ãƒˆãƒƒãƒ—ã‚¦ã‚©ãƒƒãƒé–‹å§‹
 //---------------------
 function startStopWatch(){
   if (started == 0){
@@ -533,7 +534,7 @@ function startStopWatch(){
   }
 }
 //---------
-//ŠÔ•\¦
+//æ™‚é–“è¡¨ç¤º
 //---------
 function showTime(){
   if (started == 1){
@@ -566,8 +567,8 @@ function showTime(){
 }
 
 //
-//Math.ramdom‚Åæ“¾‚³‚ê‚é’l
+//Math.ramdomã§å–å¾—ã•ã‚Œã‚‹å€¤
 //rasult 0.3856537048811626
 //result 0.8959839793677062
 //       1234567890123457
-// 7Œ…‚Ì­”
+// 7æ¡ã®å°‘æ•°
