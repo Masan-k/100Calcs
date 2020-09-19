@@ -1,5 +1,5 @@
 # ABOUT
-Calculating simple math 100 times.
+Calculating simple math 100 times.  
 Use it for a change of pace.
 
 # URL
