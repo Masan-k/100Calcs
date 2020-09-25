@@ -379,14 +379,14 @@ function startStopWatch() {
 function clickbtnStart() {
     'use strict';
     
-    var eBtnSubmit = document.getElementById("btnSubmit"),
-        eBtnStart = document.getElementById("btnStart"),
+    var eBtnStart = document.getElementById("btnStart"),
         eLblTitle = document.getElementById("lblTitle"),
         eInputAns = document.getElementById("inputAns");
     
+    eBtnStart.focus();
+    
     startStopWatch();
     setFormula();
-    eBtnSubmit.disabled = false;
     eBtnStart.disabled = true;
     eLblTitle.innerText = "Running...";
     
