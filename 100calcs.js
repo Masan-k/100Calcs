@@ -1,5 +1,4 @@
-﻿/*globals window, document, setInterval, console */
-
+﻿/*globals window, document, setInterval, event, console */
 
 var OPE_ADD = '01',
     OPE_SUB = '02',
@@ -10,7 +9,9 @@ var OPE_ADD = '01',
     multiCount = 0,
     divCount = 0,
     started = 0,
-    startDate = -1;
+    startDate = -1,
+    KEYCODE_ENTER = 13;
+
 
 function getRandom(min, max) {
     'use strict';
@@ -187,9 +188,8 @@ function getAnPrimeNumbers() {
     //--------------------------------
     //0と1を除いた素数以外の配列を作成
     //--------------------------------
-    
     for (i = 2; i <= MAX; i += 1) {
-        if (sieve[i] === false) { //素数だけの場合はtrue,
+        if (sieve[i] === false) {
             pAnNumbers[pIndex] = i;
             pIndex = pIndex + 1;
         }
@@ -296,7 +296,6 @@ function setFormula() {
         return leftQ / correctAns;
     }
 
-    //演算子の取得処理
     operationCode = getOperationCode();
     operationName = getOperationName(operationCode);
        
@@ -360,9 +359,8 @@ function showTime() {
         eLblTime.innerText = stopwatchMinute + ":" + stopwatchSecond + ":" + stopwatchMiliSecond;
     }
 }
-//---------------------
-//ストップウォッチ開始
-//---------------------
+
+
 function startStopWatch() {
     'use strict';
     if (started === 0) {
@@ -390,6 +388,7 @@ function clickbtnStart() {
     eBtnStart.disabled = true;
     eLblTitle.innerText = "Running...";
     
+    eInputAns.innerText = "";
     eInputAns.focus();
 }
 
@@ -410,8 +409,7 @@ function clickbtnSubmit() {
         MAX_ANS_COUNT = 100,
         eLblAnsCount = document.getElementById("lblAnsCount"),
         ansCount,
-        eBtnStart = document.getElementById("btnStart"),
-        eBtnSubmit = document.getElementById("btnSubmit");
+        eBtnStart = document.getElementById("btnStart");
         
     
     
@@ -443,17 +441,16 @@ function clickbtnSubmit() {
         break;
     }
     
-    if (parseInt(eInputAns.value, 10) === correctAns) { //明示的キャスト（つけなくても動く）
+    if (parseInt(eInputAns.value, 10) === correctAns) {
         
         ansCount = parseInt(eLblAnsCount.innerText, 10) + 1;
         eLblAnsCount.innerText = ansCount;
     
         if (ansCount === MAX_ANS_COUNT) {
             eLblTitle.innerText = "Clear!";
-            started = 0; //ストップウォッチを停止
+            started = 0;
         
             eBtnStart.disabled = true;
-            eBtnSubmit.disabled = true;
             
             eLblLeftQ.innerText = "Clear";
             eLblOperation.innerText = "+";
@@ -461,15 +458,14 @@ function clickbtnSubmit() {
             eInputAns.value = eLblLeftQ.innerText + eLblRightQ.innerText;
         
         } else {
-            eLblTitle.innerText = "OK"; //labelにはvalueはない
-            setFormula(); //次の問題を表示
+            eLblTitle.innerText = "OK";
+            setFormula();
             eInputAns.value = "";
         }
         
     } else {
-        
-        if (eInputAns.value.length >= String(correctAns).length) {
-            eLblTitle.innerText = "NG"; //labelにはvalueはない
+        if (eInputAns.value.length >= String(correctAns).length || event.keyCode === KEYCODE_ENTER) {
+            eLblTitle.innerText = "NG";
             eInputAns.value = "";
         }
 
@@ -482,15 +478,12 @@ function init() {
     var eLblTitle = document.getElementById("lblTitle"),
         eLblLeftQ = document.getElementById("lblLeftQ"),
         eLblRightQ = document.getElementById("lblRightQ"),
-        eLblOperation = document.getElementById("lblOperation"),
-        eBtnSubmit = document.getElementById("btnSubmit");
+        eLblOperation = document.getElementById("lblOperation");
     
     eLblTitle.innerText = "Ready ...";
     eLblLeftQ.innerText = "x";
     eLblRightQ.innerText = "y";
     eLblOperation.innerText = "+";
-     
-    eBtnSubmit.disabled = true;
 }
 
 //-----------------------
@@ -516,18 +509,28 @@ function clickbtnReset() {
     divCount = 0;
 }
 
+
+function keyInput() {
+    'use strict';
+    var KEYCODE_START = 83;
+    
+    if (event.keyCode === KEYCODE_START) {
+        event.preventDefault();
+        clickbtnStart();
+    } else {
+        clickbtnSubmit();
+    }
+}
 window.onload = function () {
     'use strict';
     
-    var btnStart, btnReset, inputAns;
-    
+    var btnStart, btnReset;
     btnStart = document.getElementById("btnStart");
     btnStart.addEventListener("click", clickbtnStart, false);
 
     btnReset = document.getElementById("btnReset");
     btnReset.addEventListener("click", clickbtnReset, false);
-    
-    inputAns = document.getElementById("inputAns");
-    inputAns.addEventListener("keyup", clickbtnSubmit, false);
+        
+    document.body.onkeyup = keyInput;
     
 };
