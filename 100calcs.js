@@ -1,4 +1,4 @@
-﻿/*globals window, document, event, setInterval */
+﻿/*globals window, document, setInterval, console */
 
 
 var OPE_ADD = '01',
@@ -442,10 +442,12 @@ function clickbtnSubmit() {
     default:
         break;
     }
+    
     if (parseInt(eInputAns.value, 10) === correctAns) { //明示的キャスト（つけなくても動く）
         
         ansCount = parseInt(eLblAnsCount.innerText, 10) + 1;
         eLblAnsCount.innerText = ansCount;
+    
         if (ansCount === MAX_ANS_COUNT) {
             eLblTitle.innerText = "Clear!";
             started = 0; //ストップウォッチを停止
@@ -457,29 +459,22 @@ function clickbtnSubmit() {
             eLblOperation.innerText = "+";
             eLblRightQ.innerText = "!!";
             eInputAns.value = eLblLeftQ.innerText + eLblRightQ.innerText;
+        
         } else {
             eLblTitle.innerText = "OK"; //labelにはvalueはない
             setFormula(); //次の問題を表示
             eInputAns.value = "";
         }
+        
     } else {
-        eLblTitle.innerText = "NG"; //labelにはvalueはない
-        eInputAns.value = "";
+        
+        if (eInputAns.value.length >= String(correctAns).length) {
+            eLblTitle.innerText = "NG"; //labelにはvalueはない
+            eInputAns.value = "";
+        }
 
 	}
 }
-
-//---------------------------
-// Key press AnswerTextbox!!
-//---------------------------
-function keyPressTextBox() {
-    'use strict';
-    var KEYCODE_ENTER = 13;
-    if (event.keyCode === KEYCODE_ENTER) {
-        clickbtnSubmit();
-    }
-}
-
 
 function init() {
     'use strict';
@@ -524,18 +519,15 @@ function clickbtnReset() {
 window.onload = function () {
     'use strict';
     
-    var btnStart, btnSubmit, btnReset, inputAns;
+    var btnStart, btnReset, inputAns;
     
     btnStart = document.getElementById("btnStart");
     btnStart.addEventListener("click", clickbtnStart, false);
-
-    btnSubmit = document.getElementById("btnSubmit");
-    btnSubmit.addEventListener("click", clickbtnSubmit, false);
 
     btnReset = document.getElementById("btnReset");
     btnReset.addEventListener("click", clickbtnReset, false);
     
     inputAns = document.getElementById("inputAns");
-    inputAns.addEventListener("keypress", keyPressTextBox, false);
+    inputAns.addEventListener("keyup", clickbtnSubmit, false);
     
 };
