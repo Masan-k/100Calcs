@@ -1,4 +1,4 @@
-﻿/*globals window, document, setInterval, event, console */
+﻿/*globals window, document, setInterval, event */
 
 var OPE_ADD = '01',
     OPE_SUB = '02',
@@ -471,6 +471,21 @@ function clickbtnSubmit() {
 
 	}
 }
+function changeBlack() {
+    'use strict';
+    document.body.style.backgroundColor = '#DDD';
+}
+
+function changeBlue() {
+    'use strict';
+    document.body.style.backgroundColor = '#B4CCE3';
+
+}
+
+function changeWhite() {
+    'use strict';
+    document.body.style.backgroundColor = '#FFF';
+}
 
 function init() {
     'use strict';
@@ -484,7 +499,9 @@ function init() {
     eLblLeftQ.innerText = "x";
     eLblRightQ.innerText = "y";
     eLblOperation.innerText = "+";
+    
 }
+
 
 //-----------------------
 // Click Reset button !!
@@ -521,16 +538,29 @@ function keyInput() {
         clickbtnSubmit();
     }
 }
+
+
 window.onload = function () {
     'use strict';
     
-    var btnStart, btnReset;
+    var btnStart, btnReset, btnBlack, btnBlue, btnWhite;
+
+    document.body.onkeyup = keyInput;
+
     btnStart = document.getElementById("btnStart");
     btnStart.addEventListener("click", clickbtnStart, false);
 
     btnReset = document.getElementById("btnReset");
     btnReset.addEventListener("click", clickbtnReset, false);
         
-    document.body.onkeyup = keyInput;
     
+    btnBlack = document.getElementById("btnBlack");
+    btnBlack.addEventListener("click", changeBlack, false);
+    
+    btnBlue = document.getElementById("btnBlue");
+    btnBlue.addEventListener("click", changeBlue, false);
+
+    btnWhite = document.getElementById("btnWhite");
+    btnWhite.addEventListener("click", changeWhite, false);
+
 };

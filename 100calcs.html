@@ -9,16 +9,14 @@
         <style>
           article, aside, dialog, figure, footer, header,
           hgroup, menu, nav, section { display: block; }
+            /*
             html {
                 background-color: #555;
             }
+            */
             body {
-                background-color: #DDD;
-                margin: 50px;
-                padding: 20px;
-            }
-            input {
-                background-color: #DDD;
+                margin: 10px;
+                padding: 10px;
             }
         </style>
         <script type="text/javascript" src="100calcs.js"></script>
@@ -42,6 +40,10 @@
         <p>time -> <label id="lblTime">00:00:00</label></p>
         <p>count -> <label id="lblAnsCount">0</label>/100</p>
         <br>
+        <input type="button" value="White" id="btnWhite">
+        <input type="button" value="Black" id="btnBlack">
+        <input type="button" value="Blue" id="btnBlue">
+
         <br>
         <h1>Short key</h1>
         <ul>
@@ -56,6 +58,7 @@
 
         <script>
             init();
+            changeWhite();
         </script>
     </body>
 </html>
