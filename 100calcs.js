@@ -1,4 +1,4 @@
-﻿/*globals window, document, setInterval, event */
+﻿/*globals window, document, setInterval, event , localStorage */
 
 var OPE_ADD = '01',
     OPE_SUB = '02',
@@ -208,7 +208,6 @@ function setFormula() {
         eLblLeftQ = document.getElementById("lblLeftQ"),
         eLblRightQ = document.getElementById("lblRightQ"),
         eLblOperation = document.getElementById("lblOperation");
-      
 
     
     function getCurrentAnsAdd() {
@@ -342,11 +341,14 @@ function showTime() {
             stopwatchMinute,
             nowDate,
             stopWatchTime,
-            eLblTime;
+            eLblTime,
+            times,
+            secondTime;
+
         nowDate = new Date();
         stopWatchTime = nowDate.getTime() - startDate.getTime();
         
-        stopwatchMiliSecond = Math.floor(stopWatchTime / 10) % 60;
+        stopwatchMiliSecond = Math.floor(stopWatchTime / 10) % 100;
         stopwatchMiliSecond = ('0' + stopwatchMiliSecond).slice(-2);
         
         stopwatchSecond = Math.floor(stopWatchTime / 1000) % 60;
@@ -357,6 +359,7 @@ function showTime() {
             
         eLblTime = document.getElementById("lblTime");
         eLblTime.innerText = stopwatchMinute + ":" + stopwatchSecond + ":" + stopwatchMiliSecond;
+
     }
 }
 
@@ -409,9 +412,10 @@ function clickbtnSubmit() {
         MAX_ANS_COUNT = 100,
         eLblAnsCount = document.getElementById("lblAnsCount"),
         ansCount,
-        eBtnStart = document.getElementById("btnStart");
-        
-    
+        eBtnStart = document.getElementById("btnStart"),
+        eLblTime,
+        times,
+        secondTime;
     
     eLblTitle = document.getElementById("lblTitle");
     eLblLeftQ = document.getElementById("lblLeftQ");
@@ -455,8 +459,15 @@ function clickbtnSubmit() {
             eLblLeftQ.innerText = "Clear";
             eLblOperation.innerText = "+";
             eLblRightQ.innerText = "!!";
+
             eInputAns.value = eLblLeftQ.innerText + eLblRightQ.innerText;
-        
+
+            //score save
+            eLblTime = document.getElementById("lblTime");
+            times = eLblTime.innerText.split(":");
+            secondTime = Number(times[0] * 60) + Number(times[1]) + Number(times[2] / 100);
+            localStorage.setItem(new Date(), secondTime);
+
         } else {
             eLblTitle.innerText = "OK";
             setFormula();
@@ -468,8 +479,7 @@ function clickbtnSubmit() {
             eLblTitle.innerText = "NG";
             eInputAns.value = "";
         }
-
-	}
+    }
 }
 function changeBlack() {
     'use strict';
@@ -501,7 +511,6 @@ function init() {
     eLblOperation.innerText = "+";
     
 }
-
 
 //-----------------------
 // Click Reset button !!
