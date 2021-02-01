@@ -415,7 +415,8 @@ function clickbtnSubmit() {
         eBtnStart = document.getElementById("btnStart"),
         eLblTime,
         times,
-        secondTime;
+        secondTime,
+        nowDate,year,month,day,hour,minute,second;
     
     eLblTitle = document.getElementById("lblTitle");
     eLblLeftQ = document.getElementById("lblLeftQ");
@@ -466,7 +467,16 @@ function clickbtnSubmit() {
             eLblTime = document.getElementById("lblTime");
             times = eLblTime.innerText.split(":");
             secondTime = Number(times[0] * 60) + Number(times[1]) + Number(times[2] / 100);
-            localStorage.setItem(new Date(), secondTime);
+
+            nowDate = new Date();
+            year = nowDate.getFullYear();
+            month = ('00' + (nowDate.getMonth()+1)).slice(-2);
+            day = ('00' + nowDate.getDate()).slice(-2);
+            hour = ('00' + nowDate.getHours()).slice(-2);
+            minute = ('00' + nowDate.getMinutes()).slice(-2);
+            second = ('00' + nowDate.getSeconds()).slice(-2);
+
+            localStorage.setItem(year + month + day + hour + minute + second, secondTime);
 
         } else {
             eLblTitle.innerText = "OK";
