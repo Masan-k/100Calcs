@@ -476,7 +476,7 @@ function clickbtnSubmit() {
             minute = ('00' + nowDate.getMinutes()).slice(-2);
             second = ('00' + nowDate.getSeconds()).slice(-2);
 
-            localStorage.setItem(year + month + day + hour + minute + second, secondTime);
+            localStorage.setItem('100CALCS' + ',' + year + month + day + hour + minute + second, secondTime);
 
         } else {
             eLblTitle.innerText = "OK";
