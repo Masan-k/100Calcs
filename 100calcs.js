@@ -478,6 +478,7 @@ function clickbtnSubmit() {
 
             localStorage.setItem('100CALCS' + ',' + year + month + day + hour + minute + second, secondTime);
             drawCtxLastYear();
+            drawPast();
 
         } else {
             eLblTitle.innerText = "OK";
