@@ -3,7 +3,7 @@ Calculating simple math 100 times.
 Use it for a change of pace.
 
 # URL
-https://masan-k.github.io/pc/100Calcs/100calcs.html
+https://masan-k.github.io/pc/100Calcs/100calcs.html  
 https://masan-k.github.io/mobile/100Calcs/100calcs.html
 
 # Original
