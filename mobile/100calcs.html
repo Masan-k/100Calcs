@@ -19,18 +19,6 @@
                 padding: 10px;
             }
 
-            #cvsLastYear {
-                background-color: #FFF;
-                border: solid 0.1em;
-                border-color: #DDD;
-            }
-
-            #cvsPast {
-                background-color: #FFF;
-                border: solid 0.1em;
-                border-color: #DDD;
-            }
-
         </style>
         <script type="text/javascript" src="100calcs.js"></script>
     </head>
@@ -46,6 +34,24 @@
         </p>
 
         <p>
+            <input type="button" value="7" id="btn7">
+            <input type="button" value="8" id="btn8">
+            <input type="button" value="9" id="btn9">
+        <p>
+            <input type="button" value="4" id="btn4">
+            <input type="button" value="5" id="btn5">
+            <input type="button" value="6" id="btn6">
+        </p>
+            <input type="button" value="1" id="btn1">
+            <input type="button" value="2" id="btn2">
+            <input type="button" value="3" id="btn3">
+        <p>
+            <input type="button" value="0" id="btn0">
+            <input type="button" value="C" id="btnClear">
+            <input type="button" value="->" id="btnBack">
+        </p>
+
+        <p>
             <input type="button" value="Start" id="btnStart">
             <input type="button" value="Reset" id="btnReset">
             
@@ -57,28 +63,7 @@
         <input type="button" value="Black" id="btnBlack">
         <input type="button" value="Blue" id="btnBlue">
 
-        <br>
-        <h1>Number of achievements up to last year</h1>
-        <canvas id="cvsLastYear" width="800px" height="150px"></canvas>
-
-
-        <h1>Record of the past 100 times</h1>
-        <canvas id="cvsPast" width="800px" height="400px"></canvas>
-
-        <h1>Short key</h1>
-        <ul>
-        <li>Enter:Answer clear.</li>
-        <li>s:Start Button.</li>
-        </ul>
-
-        <h1>ABOUT</h1>
-        <p>Calculating simple math 100 times.</p>
-        <h1>Original</h1>
-        <p><a href="https://itunes.apple.com/us/app/100calcs/id455471600?mt=8">https://itunes.apple.com/us/app/100calcs/id455471600?mt=8</a></p>
-        <h1>LINK</h2>
-        <p><a href="https://masan-k.github.io/n-back/">n-back</a></p>
-
-        <script>
+       <script>
             init();
             changeWhite();
         </script>
