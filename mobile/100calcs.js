@@ -549,42 +549,52 @@ function clickbtnReset() {
 function clickbtn0(){
   let eInputAns = document.getElementById("inputAns");
   eInputAns.value = eInputAns.value + "0";
+  clickbtnSubmit();
 }
 function clickbtn1(){
   let eInputAns = document.getElementById("inputAns");
   eInputAns.value = eInputAns.value + "1";
+  clickbtnSubmit();
 }
 function clickbtn2(){
   let eInputAns = document.getElementById("inputAns");
   eInputAns.value = eInputAns.value + "2";
+  clickbtnSubmit();
 }
 function clickbtn3(){
   let eInputAns = document.getElementById("inputAns");
   eInputAns.value = eInputAns.value + "3";
+  clickbtnSubmit();
 }
 function clickbtn4(){
   let eInputAns = document.getElementById("inputAns");
   eInputAns.value = eInputAns.value + "4";
+  clickbtnSubmit();
 }
 function clickbtn5(){
   let eInputAns = document.getElementById("inputAns");
   eInputAns.value = eInputAns.value + "5";
+  clickbtnSubmit();
 }
 function clickbtn6(){
   let eInputAns = document.getElementById("inputAns");
   eInputAns.value = eInputAns.value + "6";
+  clickbtnSubmit();
 }
 function clickbtn7(){
   let eInputAns = document.getElementById("inputAns");
   eInputAns.value = eInputAns.value + "7";
+  clickbtnSubmit();
 }
 function clickbtn8(){
   let eInputAns = document.getElementById("inputAns");
   eInputAns.value = eInputAns.value + "8";
+  clickbtnSubmit();
 }
 function clickbtn9(){
   let eInputAns = document.getElementById("inputAns");
   eInputAns.value = eInputAns.value + "9";
+  clickbtnSubmit();
 }
 function clickbtnClear(){
   let eInputAns = document.getElementById("inputAns");
@@ -598,6 +608,8 @@ function clickbtnBack(){
 }
 window.onload = function () {
     'use strict';
+    
+    changeBlack();
     
     let btnStart, btnReset, btnBlack, btnBlue, btnWhite;
     btnStart = document.getElementById("btnStart");
