@@ -384,15 +384,12 @@ function clickbtnStart() {
         eLblTitle = document.getElementById("lblTitle"),
         eInputAns = document.getElementById("inputAns");
     
-    eBtnStart.focus();
-    
     startStopWatch();
     setFormula();
     eBtnStart.disabled = true;
     eLblTitle.innerText = "Running...";
     
     eInputAns.innerText = "";
-    eInputAns.focus();
 }
 
 
